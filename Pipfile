@@ -12,6 +12,8 @@ python-dotenv = "*"
 pandas = "*"
 bcrypt = "*"
 pyyaml = "*"
+anyio = "3.6.2"
+exceptiongroup = "*"
 
 [dev-packages]
 
