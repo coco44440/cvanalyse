@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse de CV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        #container {
+            width: 80%;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e9e9e9;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Analyse de CV</h1>
+        <textarea id="cv_text" placeholder="Collez le texte du CV ici"></textarea>
+        <button onclick="analyzeCV()">Analyser le CV</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        function analyzeCV() {
+            console.log("analyzeCV function called");  // Debug message
+            const cv_text = document.getElementById('cv_text').value;
+            if (!cv_text) {
+                alert("Veuillez coller le texte du CV.");
+                return;
+            }
+            console.log("Sending request to /analyze_cv with CV text:", cv_text);  // Debug message
+            fetch('http://127.0.0.1:5000/analyze_cv', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ cv_text: cv_text }),
+            })
+            .then(response => {
+                console.log("Received response:", response);  // Debug message
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Received data:", data);  // Debug message
+                document.getElementById('result').innerText = data.analysis;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);  // Debug message
+                document.getElementById('result').innerText = "Erreur d'analyse du CV.";
+            });
+        }
+    </script>
+</body>
+</html>

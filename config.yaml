@@ -1,0 +1,16 @@
+credentials:
+  usernames:
+    yourusername1:
+      name: Your Name 1
+      password: $2b$12$Y4i7LfFBGSOciE5zuQGOK.Ez9nkvoLGEbnRlUaSJE4i.Vi0awl3ri
+    yourusername2:
+      name: Your Name 2
+      password: $2b$12$ROpPx5Kj1X/HMScwZm0L2euSRB/uYq6YjDNbD8sCwJfIu3KETXYm6
+
+cookie:
+  expiry_days: 30
+  key: some_random_key
+  name: your_cookie_name
+
+preauthorized:
+  emails: []
