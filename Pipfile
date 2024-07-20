@@ -14,6 +14,7 @@ bcrypt = "*"
 pyyaml = "*"
 anyio = "3.6.2"
 exceptiongroup = "*"
+pyjwt = "*"
 
 [dev-packages]
 

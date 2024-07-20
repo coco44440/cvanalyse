@@ -27,8 +27,11 @@ def login():
     password = st.text_input('Mot de passe', type='password')
     if st.button('Se connecter'):
         if auth.authenticate(username, password):
+            token = auth.generate_token(username)
+            st.session_state['token'] = token
             st.session_state['authenticated'] = True
             st.session_state['username'] = username
+            st.experimental_rerun()
         else:
             st.error('Nom d\'utilisateur ou mot de passe incorrect')
 
