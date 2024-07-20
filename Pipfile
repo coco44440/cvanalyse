@@ -15,6 +15,7 @@ pyyaml = "*"
 anyio = "3.6.2"
 exceptiongroup = "*"
 pyjwt = "*"
+numpy = "*"
 
 [dev-packages]
 
