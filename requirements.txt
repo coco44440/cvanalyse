@@ -6,4 +6,4 @@ python-dotenv
 pandas
 bcrypt
 PyYAML
-exceptiongroup
+anyio==3.6.2  # Ajout de la version spécifique pour anyio
