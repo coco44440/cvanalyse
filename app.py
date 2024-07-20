@@ -5,6 +5,7 @@ import PyPDF2
 from docx import Document
 import pandas as pd
 import io
+import os
 
 def read_pdf(file):
     pdf_reader = PyPDF2.PdfFileReader(file)
@@ -43,7 +44,11 @@ if not st.session_state['authenticated']:
     login()
 else:
     # Ajouter le logo de l'entreprise
-    st.image("logo.png", width=150)
+    logo_path = "TRU (5).png"
+    if os.path.exists(logo_path):
+        st.image(logo_path, width=150)
+    else:
+        st.warning("Logo non trouvé. Assurez-vous que le fichier 'TRU (5).png' est présent dans le répertoire racine.")
 
     st.title('Analyseur de CV pour la Finance et la Comptabilité')
 

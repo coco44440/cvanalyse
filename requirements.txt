@@ -9,4 +9,4 @@ PyYAML
 anyio
 exceptiongroup
 pyjwt
-
+numpy
