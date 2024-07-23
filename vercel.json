@@ -15,20 +15,4 @@
     ]
   }
 =======
-{
-    "version": 2,
-    "builds": [
-      {
-        "src": "app.py",
-        "use": "@vercel/python"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "app.py"
-      }
-    ]
-  }
->>>>>>> 496cc8eea94ec8c4b15248a4084a6937851a8905
   
