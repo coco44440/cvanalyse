@@ -1,6 +1,6 @@
 import streamlit as st
 import auth
-from backend import analyze_cv
+from backend import analyze_cv_sync as analyze_cv
 import PyPDF2
 from docx import Document
 import pandas as pd
@@ -46,7 +46,10 @@ else:
     # Ajouter le logo de l'entreprise
     logo_path = "TRU (5).png"
     if os.path.exists(logo_path):
-        st.image(logo_path, width=150)
+        try:
+            st.image(logo_path, width=150)
+        except Exception as e:
+            st.warning(f"Erreur lors du chargement du logo : {e}")
     else:
         st.warning("Logo non trouvé. Assurez-vous que le fichier 'TRU (5).png' est présent dans le répertoire racine.")
 
