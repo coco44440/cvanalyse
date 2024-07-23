@@ -1,7 +1,7 @@
 streamlit
 PyPDF2
 python-docx
-openai==0.28
+openai
 python-dotenv
 pandas
 bcrypt
