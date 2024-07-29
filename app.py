@@ -5,7 +5,9 @@ import PyPDF2
 from docx import Document
 import pandas as pd
 import io
-import os
+
+# Forcer une nouvelle build pour Heroku
+print("Forcing a new build")
 
 def read_pdf(file):
     pdf_reader = PyPDF2.PdfFileReader(file)
@@ -28,11 +30,8 @@ def login():
     password = st.text_input('Mot de passe', type='password')
     if st.button('Se connecter'):
         if auth.authenticate(username, password):
-            token = auth.generate_token(username)
-            st.session_state['token'] = token
             st.session_state['authenticated'] = True
             st.session_state['username'] = username
-            st.experimental_rerun()
         else:
             st.error('Nom d\'utilisateur ou mot de passe incorrect')
 
@@ -44,14 +43,7 @@ if not st.session_state['authenticated']:
     login()
 else:
     # Ajouter le logo de l'entreprise
-    logo_path = "TRU (5).png"
-    if os.path.exists(logo_path):
-        try:
-            st.image(logo_path, width=150)
-        except Exception as e:
-            st.warning(f"Erreur lors du chargement du logo : {e}")
-    else:
-        st.warning("Logo non trouvé. Assurez-vous que le fichier 'TRU (5).png' est présent dans le répertoire racine.")
+    st.image("logo.png", width=150)
 
     st.title('Analyseur de CV pour la Finance et la Comptabilité')
 
