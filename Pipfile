@@ -7,17 +7,10 @@ verify_ssl = true
 streamlit = "*"
 PyPDF2 = "*"
 python-docx = "*"
-openai = "*"
+openai = "0.28"
 python-dotenv = "*"
 pandas = "*"
 bcrypt = "*"
-pyyaml = "*"
-anyio = "3.6.2"
-exceptiongroup = "*"
-pyjwt = "*"
-numpy = "*"
-[packages]
-openai = "==0.28"
 
 [dev-packages]
 
