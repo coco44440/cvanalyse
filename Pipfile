@@ -12,6 +12,7 @@ python-dotenv = "*"
 pandas = "*"
 bcrypt = "*"
 PyJWT = "*"
+exceptiongroup = "*"
 
 [dev-packages]
 
