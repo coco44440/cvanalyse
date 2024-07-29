@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import auth
 from backend import analyze_cv
@@ -5,9 +6,6 @@ import PyPDF2
 from docx import Document
 import pandas as pd
 import io
-
-# Forcer une nouvelle build pour Heroku
-print("Forcing a new build")
 
 def read_pdf(file):
     pdf_reader = PyPDF2.PdfFileReader(file)
@@ -101,3 +99,4 @@ else:
                     st.error(f"Erreur lors de l'affichage du tableau pour {filename} : {e}")
         else:
             st.write("Aucun fichier téléchargé.")
+
