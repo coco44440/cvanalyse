@@ -10,3 +10,4 @@ anyio
 exceptiongroup
 pyjwt
 numpy
+PyJWT
