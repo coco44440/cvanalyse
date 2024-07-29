@@ -1,6 +1,6 @@
 import streamlit as st
 import auth
-from backend import analyze_cv_sync as analyze_cv
+from backend import analyze_cv
 import PyPDF2
 from docx import Document
 import pandas as pd
