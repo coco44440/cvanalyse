@@ -47,13 +47,16 @@ def analyze_cv(cv_text):
     )
 
     try:
-        response = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=prompt,
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": prompt}
+            ],
             max_tokens=500,
             temperature=0.5
         )
-        result = response.choices[0].text.strip()
+        result = response.choices[0].message['content'].strip()
         print("Analysis result:", result)  # Debug message
         return result
     except Exception as e:
