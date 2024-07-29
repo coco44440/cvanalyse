@@ -56,10 +56,9 @@ def analyze_cv(cv_text):
             max_tokens=500,
             temperature=0.5
         )
-        result = response.choices[0].message['content'].strip()
+        result = response['choices'][0]['message']['content'].strip()
         print("Analysis result:", result)  # Debug message
         return result
     except Exception as e:
         print("Error during OpenAI API call:", str(e))  # Debug message
         return f"Erreur lors de l'appel à l'API OpenAI : {str(e)}"
-
