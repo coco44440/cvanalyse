@@ -16,6 +16,8 @@ anyio = "3.6.2"
 exceptiongroup = "*"
 pyjwt = "*"
 numpy = "*"
+[packages]
+openai = "==0.28"
 
 [dev-packages]
 
